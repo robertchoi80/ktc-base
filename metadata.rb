@@ -53,9 +53,5 @@ depends "hostsfile",
 depends "yum",
           "~> 2.3.1"
 
-# TODO:Lock to 2.1 when released
-depends "sysctl",
-          ">= 2.0.0"
-
 depends "omnibus_updater",
           "~> 0.2.2"
