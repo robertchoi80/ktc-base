@@ -1,0 +1,41 @@
+---
+driver_plugin: vagrant
+driver_config: 
+#  require_chef_omnibus: 11.4.4
+
+platforms:
+- name: centos-6.4_chef11
+  driver_config: 
+    box: opscode-centos-6.4_chef-11.4.4
+    box_url:  https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-6.4_chef-11.4.4.box
+  attributes: 
+    authorization:
+      sudo:
+        users: 
+        - ec2user
+        - vagrant
+
+- name: ubuntu-12.04
+  driver_config:
+    box: opscode-ubuntu-12.04_chef11
+    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_chef-11.4.4.box
+  attributes:
+    authorization:
+      sudo:
+        users: 
+        - ubuntu
+        - vagrant
+
+suites:
+- name: default
+  run_list:
+  - recipe[chef-solo-search]
+  - recipe[ktc-base]
+  attributes: 
+    tz: GMT
+    omnibus_updater:
+      disabled: true
+
+clusters:
+  default:
+    - default
