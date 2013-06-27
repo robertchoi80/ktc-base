@@ -1,5 +1,4 @@
 include_attribute "ntp"
-
 default[:ntp][:server] = %w/
   kr.pool.ntp.org
   0.asia.pool.ntp.org
