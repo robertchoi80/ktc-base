@@ -7,8 +7,12 @@ long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version           "1.2.3"
 
 depends "ohai"
+depends "ubuntu"
+          "~>  1.1.1"
+
 depends "apt",
           "~> 2.0.0"
+
 # as this is a new / random upstream
 # I am going to lock it down for now
 depends "timezone",
