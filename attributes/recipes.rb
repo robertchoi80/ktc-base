@@ -10,9 +10,10 @@ when "rhel"
   default[:base][:includes] << "yum"
 when "debian"
   default[:base][:includes] << "apt"
+  if platform == "ubuntu"
+    default[:base][:includes] << "ubuntu"
+  end
 end
-
-
 
 default[:base][:includes].concat %w{
   timezone
