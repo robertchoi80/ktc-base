@@ -5,7 +5,7 @@ gem 'berkshelf'
 
 group "develop" do
   gem 'test-kitchen', :git => "git://github.com/opscode/test-kitchen.git"
-  gem 'kitchen-vagrant'
+  gem 'kitchen-vagrant', :git => "git://github.com/opscode/kitchen-vagrant"
   gem 'kitchen-lxc'
   gem 'busser-bats'
   gem 'busser-serverspec'
