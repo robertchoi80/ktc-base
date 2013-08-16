@@ -4,19 +4,19 @@ maintainer_email  "spheromak@gmail.com"
 license           "Apache 2"
 description       "Base Role Cook"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           "1.2.4"
+version           "1.2.5"
 
 depends "ohai"
 depends "ubuntu",
           "~> 1.1.1"
 
 depends "apt",
-          "~> 2.0.0"
+          "~> 2.1.0"
 
 # as this is a new / random upstream
 # I am going to lock it down for now
 depends "timezone",
-          "= 0.0.3"
+          "~> 0.0.3"
 
 depends "cron",
           "~> 1.2.4"
@@ -58,4 +58,4 @@ depends "yum",
           "~> 2.3.1"
 
 depends "omnibus_updater",
-          "~> 0.2.2"
+          "~> 0.2.4"
