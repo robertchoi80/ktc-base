@@ -40,7 +40,7 @@ depends "ktc-vim",
           "~> 0.1.3"
 
 depends "ktc-git",
-          "~> 0.1.0"
+          "~> 0.1.1"
 
 depends "ktc-ssh",
           "~> 1.1.1"
