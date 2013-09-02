@@ -13,6 +13,8 @@ group "ktc" do
     github: 'cloudware-cookbooks/ktc-git'
   cookbook 'ktc-ssh',
     github: 'cloudware-cookbooks/ktc-ssh'
+  cookbook 'ktc-monitor',
+    github: 'cloudware-cookbooks/ktc-monitor'
   # can remove this when upstream yum includes https://github.com/opscode-cookbooks/yum/pull/48
   cookbook 'yum',
     github: 'spheromak/yum',
