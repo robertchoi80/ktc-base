@@ -59,3 +59,6 @@ depends "yum",
 
 depends "omnibus_updater",
           "~> 0.2.4"
+
+depends "ktc-monitor",
+          "~> 0.9.0"
