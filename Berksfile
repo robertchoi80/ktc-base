@@ -13,12 +13,17 @@ group "ktc" do
     github: 'cloudware-cookbooks/ktc-git'
   cookbook 'ktc-ssh',
     github: 'cloudware-cookbooks/ktc-ssh'
-  cookbook 'ktc-monitor',
-    github: 'cloudware-cookbooks/ktc-monitor'
   # can remove this when upstream yum includes https://github.com/opscode-cookbooks/yum/pull/48
   cookbook 'yum',
     github: 'spheromak/yum',
     branch: 'integration'
+  cookbook 'ktc-monitor', 
+    git: 'git@github.com:cloudware-cookbooks/ktc-monitor.git' 
+  cookbook 'ktc-collectd',
+    github: 'cloudware-cookbooks/ktc-collectd'
+  cookbook 'ktc-sensu', 
+    git: 'git@github.com:cloudware-cookbooks/ktc-sensu.git', 
+    branch: 'develop'
 end
 
 group "other" do
@@ -28,8 +33,16 @@ group "other" do
     github: 'hw-cookbooks/omnibus_updater'
   cookbook 'timezone',
     github: 'secondmarket-cookbooks/timezone'
+  cookbook 'collectd',
+    github: 'miah/chef-collectd'
+  cookbook "graphite",
+    github: "hw-cookbooks/graphite"
+  cookbook "sensu", 
+    github: "sensu/sensu-chef"
+  cookbook "redis", 
+    github: "miah/chef-redis", 
+    branch: "2.1.0"
 end
-
 
 group "integration" do
   cookbook 'chef-solo-search',
