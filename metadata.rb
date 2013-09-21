@@ -46,7 +46,7 @@ depends "ktc-ssh",
           "~> 1.1.1"
 
 depends "sudo",
-          "~> 2.1.0"
+          "~> 2.2.0"
 
 depends "chef-client",
           "~> 3.0.0"
