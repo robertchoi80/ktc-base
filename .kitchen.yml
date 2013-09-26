@@ -19,7 +19,7 @@ suites:
 - name: default
   run_list:
   - recipe[chef-solo-search]
-  - recipe[ktc-etcd]
+  - recipe[etcd::compile_time]
   - recipe[ktc-sensu::master]
   - recipe[ktc-base]
   attributes: 
