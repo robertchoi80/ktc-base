@@ -24,6 +24,11 @@ group "ktc" do
   cookbook 'ktc-sensu', 
     git: 'git@github.com:cloudware-cookbooks/ktc-sensu.git', 
     branch: 'develop'
+  cookbook 'ktc-utils',
+    github: 'cloudware-cookbooks/ktc-utils',
+    branch: 'develop'
+  cookbook 'ktc-etcd',
+    github: 'cloudware-cookbooks/ktc-etcd'
 end
 
 group "other" do
@@ -42,10 +47,18 @@ group "other" do
   cookbook "redis", 
     github: "miah/chef-redis", 
     branch: "2.1.0"
+  cookbook "services", 
+    github: "spheromak/services-cookbook"
+  cookbook 'openstack-common',
+    github: 'stackforge/cookbook-openstack-common'
+  cookbook "redis",
+    github: "miah/chef-redis"
 end
 
 group "integration" do
   cookbook 'chef-solo-search',
     github: 'edelight/chef-solo-search'
+  cookbook 'ubuntu'
+  cookbook "etcd", "~> 1.2.4"
 end
 

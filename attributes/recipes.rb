@@ -32,4 +32,5 @@ default[:base][:includes].concat %w{
   tmux::package
   chef-client::delete_validation
   ktc-monitor::client
+  ktc-logging::client
 }
