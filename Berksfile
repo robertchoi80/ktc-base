@@ -31,6 +31,8 @@ group "ktc" do
     branch: 'develop'
   cookbook 'ktc-etcd',
     github: 'cloudware-cookbooks/ktc-etcd'
+  cookbook 'ktc-rsyslog',
+    github: 'cloudware-cookbooks/ktc-rsyslog'
 end
 
 group "other" do
