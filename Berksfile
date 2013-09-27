@@ -19,6 +19,8 @@ group "ktc" do
     branch: 'integration'
   cookbook 'ktc-monitor', 
     git: 'git@github.com:cloudware-cookbooks/ktc-monitor.git' 
+  cookbook 'ktc-logging', 
+    git: 'git@github.com:cloudware-cookbooks/ktc-logging.git' 
   cookbook 'ktc-collectd',
     github: 'cloudware-cookbooks/ktc-collectd'
   cookbook 'ktc-sensu', 
