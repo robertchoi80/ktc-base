@@ -65,3 +65,6 @@ depends "ktc-monitor",
 
 depends "ktc-logging",
           "~> 0.1.0"
+
+depends "ktc-utils",
+          "~> 0.3.2"
