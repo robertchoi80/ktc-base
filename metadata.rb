@@ -62,3 +62,6 @@ depends "omnibus_updater",
 
 depends "ktc-monitor",
           "~> 0.9.0"
+
+depends "ktc-logging",
+          "~> 0.1.0"
