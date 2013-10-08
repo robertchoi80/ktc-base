@@ -13,18 +13,18 @@ group "ktc" do
     github: 'cloudware-cookbooks/ktc-git'
   cookbook 'ktc-ssh',
     github: 'cloudware-cookbooks/ktc-ssh'
-  # can remove this when upstream yum includes https://github.com/opscode-cookbooks/yum/pull/48
+  # can remove this when upstream yum includes https://github.com/opscode-cookbooks/yum/pull/48`
   cookbook 'yum',
     github: 'spheromak/yum',
     branch: 'integration'
-  cookbook 'ktc-monitor', 
-    git: 'git@github.com:cloudware-cookbooks/ktc-monitor.git' 
-  cookbook 'ktc-logging', 
-    git: 'git@github.com:cloudware-cookbooks/ktc-logging.git' 
+  cookbook 'ktc-monitor',
+    git: 'git@github.com:cloudware-cookbooks/ktc-monitor.git'
+  cookbook 'ktc-logging',
+    git: 'git@github.com:cloudware-cookbooks/ktc-logging.git'
   cookbook 'ktc-collectd',
     github: 'cloudware-cookbooks/ktc-collectd'
-  cookbook 'ktc-sensu', 
-    git: 'git@github.com:cloudware-cookbooks/ktc-sensu.git', 
+  cookbook 'ktc-sensu',
+    git: 'git@github.com:cloudware-cookbooks/ktc-sensu.git',
     branch: 'develop'
   cookbook 'ktc-utils',
     github: 'cloudware-cookbooks/ktc-utils',
@@ -46,12 +46,12 @@ group "other" do
     github: 'miah/chef-collectd'
   cookbook "graphite",
     github: "hw-cookbooks/graphite"
-  cookbook "sensu", 
+  cookbook "sensu",
     github: "sensu/sensu-chef"
-  cookbook "redis", 
-    github: "miah/chef-redis", 
+  cookbook "redis",
+    github: "miah/chef-redis",
     branch: "2.1.0"
-  cookbook "services", 
+  cookbook "services",
     github: "spheromak/services-cookbook"
   cookbook 'openstack-common',
     github: 'stackforge/cookbook-openstack-common'
