@@ -21,7 +21,6 @@ default[:base][:includes].concat %w{
   chef-client::cron
   omnibus_updater
   ohai
-  helpers
   users
   sudo
   ktc-git::users
