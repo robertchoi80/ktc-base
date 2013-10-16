@@ -28,7 +28,7 @@ default[:base][:includes].concat %w{
   ktc-vim
   ktc-base::global_limits
   ntp
-  tmux::_package
+  tmux
   chef-client::delete_validation
   ktc-monitor::client
   ktc-logging::client
