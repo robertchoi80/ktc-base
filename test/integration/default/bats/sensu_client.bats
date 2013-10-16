@@ -1,5 +1,5 @@
 # vim: ft=sh:
 
 @test "sensu client service started"  {
-    service sensu-client status
+    /usr/sbin/service sensu-client status
 }
