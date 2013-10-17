@@ -21,7 +21,6 @@ default[:base][:includes].concat %w{
   chef-client::cron
   omnibus_updater
   ohai
-  helpers
   users
   sudo
   ktc-git::users
@@ -29,7 +28,7 @@ default[:base][:includes].concat %w{
   ktc-vim
   ktc-base::global_limits
   ntp
-  tmux::package
+  tmux
   chef-client::delete_validation
   ktc-monitor::client
   ktc-logging::client
