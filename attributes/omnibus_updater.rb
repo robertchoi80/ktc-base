@@ -4,7 +4,7 @@
 #
 include_attribute "omnibus_updater"
 
-default[:omnibus_updater][:version] = "11.6.0-1"
+default[:omnibus_updater][:version] = "11.8.0-1"
 
 # for why we turn this off
 # see https://github.com/hw-cookbooks/omnibus_updater/issues/20
