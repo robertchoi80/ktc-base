@@ -18,6 +18,7 @@ end
 default[:base][:includes].concat %w{
   timezone
   ktc-base::timezone
+  ktc-base::hosts
   chef-client::cron
   omnibus_updater
   ohai
