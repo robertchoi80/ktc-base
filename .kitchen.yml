@@ -20,8 +20,8 @@ suites:
 - name: default
   run_list:
   - recipe[ktc-testing]
-  - recipe[ktc-etcd]
-  - recipe[ktc-sensu::master]
+  - recipe[etcd::compile_time]
+  - recipe[ktc-monitor::client]
   - recipe[ktc-base]
   attributes: 
     authorization:
@@ -38,7 +38,3 @@ suites:
     omnibus_updater:
       disabled: true
     tz: GMT
-
-clusters:
-  default:
-    - default
