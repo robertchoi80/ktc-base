@@ -15,3 +15,4 @@ vendor/*
 .kitchen/
 .kitchen.local.yml
 .colander
+Berksfile.lock
