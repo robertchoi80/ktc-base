@@ -11,7 +11,7 @@ describe command 'date +%Z' do
   it { should return_stdout "GMT" }
 end
 
-case backend(Serverspec::Commands::Base).check_os
+case backend(Serverspec::Commands::Base).check_os[:family]
 when "RedHat"
   describe file "/etc/localtime" do
     it { should be_linked_to "/usr/share/zoneinfo/GMT" }
