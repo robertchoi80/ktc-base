@@ -8,8 +8,9 @@ site :opscode
 
 metadata
 
-group "integration" do
-  cookbook 'etcd'
+group :integration do
+  cookbook 'ktc-etcd'
+  cookbook 'ktc-sensu'
   cookbook 'ktc-testing'
   cookbook 'timezone', github: 'secondmarket-cookbooks/timezone'
 end
