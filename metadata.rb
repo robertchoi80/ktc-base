@@ -9,7 +9,7 @@ version '1.2.10'
 depends "apt"
 depends "chef-client"
 depends "ktc-git"
-depends "ktc-logging"
+depends "ktc-logging", ">= 1.0.11"
 depends "ktc-monitor"
 depends "ktc-ssh"
 depends "ktc-vim"
