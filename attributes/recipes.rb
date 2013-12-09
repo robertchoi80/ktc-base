@@ -30,7 +30,7 @@ default[:base][:includes].concat %w{
   ktc-base::global_limits
   ntp
   tmux
-  chef-client::delete_validation
   ktc-monitor::client
   ktc-logging::client
+  chef-client::delete_validation
 }
