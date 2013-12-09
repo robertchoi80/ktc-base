@@ -6,6 +6,7 @@ chef_api "https://chefdev.mkd2.ktc", node_name: "cookbook", client_key: ".cookbo
 
 site :opscode
 
+cookbook "ktc-rsyslog", ">= 0.1.5"
 metadata
 
 group :integration do
