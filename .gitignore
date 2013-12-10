@@ -1,4 +1,6 @@
 .vagrant
+.berks/cookbooks
+.berks/tmp
 *~
 *#
 .#*
@@ -6,13 +8,14 @@
 .*.sw[a-z]
 *.un~
 /cookbooks
-
 # Bundler
-Gemfile.lock
 bin/*
 .bundle/*
 vendor/*
 .kitchen/
 .kitchen.local.yml
 .colander
+berks.json
+.vagabond
 Berksfile.lock
+Gemfile.lock
