@@ -5,7 +5,7 @@ hostsfile_entry '127.0.0.1' do
   ip_address '127.0.0.1'
   aliases   ['localhost']
   unique true
-  action [ :create, :update ]
+  action [:create, :update]
 end
 
 # Ubuntu REQUIRES this to be setup corectly
@@ -16,9 +16,9 @@ end
 ip = node[:ipaddress]
 hostsfile_entry ip do
   not_if { ip == '127.0.0.1' }
-  action [ :create, :update ]
+  action [:create, :update]
   hostname node[:fqdn].empty? ? 'unknown.localdomain' : node[:fqdn]
-  aliases [ node[:hostname].empty? ? 'unknown' : node[:hostname] ]
+  aliases [node[:hostname].empty? ? 'unknown' : node[:hostname]]
   comment "Set by chef ktc-base::hosts"
   ip_address ip
   unique true
