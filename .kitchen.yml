@@ -13,6 +13,7 @@ platforms:
 suites:
   - name: bootstrap
     run_list:
+      - recipe[ktc-testing]
       - recipe[ktc-base::bootstrap]
     attributes:
       authorization:
