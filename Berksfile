@@ -6,12 +6,12 @@ chef_api "https://cookbooks.mkd2.ktc", node_name: "cookbook", client_key: ".cook
 
 site :opscode
 
-cookbook "ktc-rsyslog", ">= 0.1.5"
 metadata
+
+cookbook 'timezone', github: 'secondmarket-cookbooks/timezone'
 
 group :integration do
   cookbook 'ktc-etcd'
   cookbook 'ktc-sensu'
   cookbook 'ktc-testing'
-  cookbook 'timezone', github: 'secondmarket-cookbooks/timezone'
 end
