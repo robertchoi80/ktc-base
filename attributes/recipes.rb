@@ -7,15 +7,10 @@ default[:base][:includes] = []
 case platform_family
 when "rhel"
   default[:base][:includes] << "selinux::permissive"
-  default[:base][:includes] << "yum"
-when "debian"
-  default[:base][:includes] << "apt"
-  if platform == "ubuntu"
-    default[:base][:includes] << "ubuntu"
-  end
 end
 
 default[:base][:includes].concat %w{
+  ktc-package
   timezone
   ktc-base::timezone
   ktc-base::hosts
@@ -30,7 +25,7 @@ default[:base][:includes].concat %w{
   ktc-base::global_limits
   ntp
   tmux
-  chef-client::delete_validation
   ktc-monitor::client
   ktc-logging::client
+  chef-client::delete_validation
 }
