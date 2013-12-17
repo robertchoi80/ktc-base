@@ -9,7 +9,7 @@ version '1.2.12'
 depends "chef-client"
 depends "ktc-git"
 depends "ktc-logging"
-depends "ktc-rsyslog", ">= 0.1.5"
+depends "ktc-rsyslog", ">= 0.1.11"
 depends "ktc-monitor"
 depends "ktc-package"
 depends "ktc-ssh"

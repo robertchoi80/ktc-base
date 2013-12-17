@@ -1,3 +1,13 @@
+#
+# Big hack here to remove a bad 127.0.1.1 entry
+#  The following did not work, as hostsfile initialize would blow up
+# hostsfile_entry '127.0.1.1' do
+#   action :remove
+# end
+
+h = Chef::Util::FileEdit.new("/etc/hosts")
+h.search_file_delete_line /^\s+127.0.1.1/
+h.write_file
 
 hostsfile_entry '127.0.0.1' do
   comment "Set by chef ktc-base::hosts"
@@ -22,8 +32,4 @@ hostsfile_entry ip do
   comment "Set by chef ktc-base::hosts"
   ip_address ip
   unique true
-end
-
-hostsfile_entry '127.0.1.1' do
-  action :remove
 end
