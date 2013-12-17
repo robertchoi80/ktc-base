@@ -1,3 +1,6 @@
+hostsfile_entry '127.0.1.1' do
+  action :remove
+end
 
 hostsfile_entry '127.0.0.1' do
   comment "Set by chef ktc-base::hosts"
@@ -22,8 +25,4 @@ hostsfile_entry ip do
   comment "Set by chef ktc-base::hosts"
   ip_address ip
   unique true
-end
-
-hostsfile_entry '127.0.1.1' do
-  action :remove
 end
