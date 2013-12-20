@@ -34,7 +34,7 @@ ip = node[:ipaddress]
 full_name = node[:fqdn].empty? ? 'unknown.localdomain' : node[:fqdn]
 name = node[:fqdn].empty? ? 'unknown.localdomain' : node[:fqdn]
 other_names =  [name]
-if name == full_name 
+if name == full_name
   other_names = nil
 end
 
