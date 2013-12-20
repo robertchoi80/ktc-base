@@ -10,7 +10,12 @@ platforms:
   - name: centos-6.4
   - name: ubuntu-12.04
 
-suites:
+suites: 
+  - name: hosts
+    run_list:
+      - recipe[badhosts_test]
+      - recipe[ktc-base::hosts]
+
   - name: bootstrap
     run_list:
       - recipe[ktc-testing]
