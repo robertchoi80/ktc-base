@@ -11,6 +11,7 @@ end
 
 default[:base][:includes].concat %w{
   ktc-package
+  sysctl
   timezone
   ktc-base::timezone
   ktc-base::hosts

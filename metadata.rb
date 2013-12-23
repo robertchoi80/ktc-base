@@ -8,6 +8,7 @@ version '1.2.15'
 
 depends "chef-client"
 depends "ktc-git"
+depends "sysctl"
 depends "ktc-logging"
 depends "ktc-rsyslog", ">= 0.1.11"
 depends "ktc-monitor"
