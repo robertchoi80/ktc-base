@@ -6,7 +6,7 @@ description       "Base Role Cook"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '1.2.16'
 
-depends "chef-client"
+depends "chef-client", ">= 3.2.0"
 depends "ktc-git"
 depends "sysctl"
 depends "ktc-logging"
