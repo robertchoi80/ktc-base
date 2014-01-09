@@ -32,13 +32,10 @@ ip = node[:ipaddress]
 # need to figure out the fqdn and wether it is the same as hostname
 # and set aliases acordingly
 full_name = node[:fqdn].empty? ? 'unknown.localdomain' : node[:fqdn]
-name = node[:fqdn].empty? ? 'unknown.localdomain' : node[:fqdn]
+name = node[:hostname].empty? ? 'unknown.localdomain' : node[:hostname]
 other_names =  [name]
 if name == full_name
   other_names = nil
-  if node[:hostname] != name
-    other_names = [ node[:hostname] ]
-  end
 end
 
 hostsfile_entry ip do
