@@ -36,6 +36,9 @@ name = node[:fqdn].empty? ? 'unknown.localdomain' : node[:fqdn]
 other_names =  [name]
 if name == full_name
   other_names = nil
+  if node[:hostname] != name
+    other_names = [ node[:hostname] ]
+  end
 end
 
 hostsfile_entry ip do
