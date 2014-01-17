@@ -4,7 +4,7 @@ maintainer_email  "spheromak@gmail.com"
 license           "Apache 2"
 description       "Base Role Cook"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '1.2.18'
+version '1.2.19'
 
 depends "chef-client", ">= 3.2.0"
 depends "ktc-git"
