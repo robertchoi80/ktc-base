@@ -3,11 +3,10 @@
 #
 
 chef_api "https://cookbooks.mkd2.ktc", node_name: "cookbook", client_key: ".cookbook.pem"
-
 site :opscode
-
 metadata
 
+cookbook 'chef-client', github: 'spheromak/chef-client', branch: 'cron_flock'
 cookbook 'timezone', github: 'secondmarket-cookbooks/timezone'
 
 group :integration do
