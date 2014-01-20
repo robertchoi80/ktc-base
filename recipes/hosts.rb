@@ -27,7 +27,11 @@ end
 #   ^^ has to be this order for hostname -f to work (and thus ohai)
 # the 127.0.1.1 entry shoudl be unused as it should only exist on hosts
 #  with no ipaddress
-ip = node[:ipaddress]
+if node.chef_environment == "dev"
+  ip = node.network["interfaces"]["eth1"]["addresses"].keys[1]
+else
+  ip = node[:ipaddress]
+end
 
 # need to figure out the fqdn and wether it is the same as hostname
 # and set aliases acordingly
