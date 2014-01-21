@@ -17,8 +17,9 @@
 
 # On vagrant/dev env we use the eth1 ip addr explicitly
 # TODO: this is brittle There should be a better way to detect vagrant
+include_recipe "ktc-utils"
 if node.chef_environment == "dev"
-  ip = network["interfaces"]["eth1"]["addresses"].keys[1]
+  ip = KTC::Network.address "management"
 else
   ip = node[:ipaddress]
 end
