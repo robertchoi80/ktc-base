@@ -18,6 +18,7 @@
 # use the management interface if it exists as the ipaddress.
 # This has some side-effects in chef. The node.fqdn may change.
 # after this then things will work.
+KTC::Network.node = node
 ip = KTC::Network.address "management" ||  node[:ipaddress]
 
 # we don't want to manage or force this on a host with only loopback
