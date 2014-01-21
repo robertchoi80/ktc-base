@@ -15,13 +15,11 @@
 # 127.0.0.1 localhost.localdomain localhost
 #
 
-# On vagrant/dev env we use the eth1 ip addr explicitly
-# TODO: this is brittle There should be a better way to detect vagrant
-if node.chef_environment == "dev"
-  ip = network["interfaces"]["eth1"]["addresses"].keys[1]
-else
-  ip = node[:ipaddress]
-end
+# use the management interface if it exists as the ipaddress.
+# This has some side-effects in chef. The node.fqdn may change.
+# after this then things will work.
+KTC::Network.node = node
+ip = KTC::Network.address "management" ||  node[:ipaddress]
 
 # we don't want to manage or force this on a host with only loopback
 return if ip == '127.0.0.1'
