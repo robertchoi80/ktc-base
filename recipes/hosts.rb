@@ -1,53 +1,49 @@
+# To you, W. B. Yeats, good praiser, wholesome dispraiser, heavy-handed judge,
+# open-handed helper of us all, I offer a play of my plays for every night of
+# the week, because you like them, and because you have taught me my trade.
+#  - Lady Gregory
 #
-#  The following did not work, as hostsfile initialize would blow up
-# hostsfile_entry '127.0.1.1' do
-#   action :remove
-# end
-
-h = Chef::Util::FileEdit.new("/etc/hosts")
-h.search_file_delete_line /^\s+127.0.1.1.*/
-h.write_file
-
-# Remove uneeded 127.0.1.1 entry
-hostsfile_entry '127.0.1.1' do
-  action :remove
-end
-
-hostsfile_entry '127.0.0.1' do
-  comment "Set by chef ktc-base::hosts"
-  hostname  'localhost.localdomain'
-  ip_address '127.0.0.1'
-  aliases   ['localhost']
-  unique true
-  action [:create, :update]
-end
-
 # Ubuntu REQUIRES this to be setup corectly
 #   ipaddr  FQDN HOSTNAME
 #   ^^ has to be this order for hostname -f to work (and thus ohai)
 # the 127.0.1.1 entry shoudl be unused as it should only exist on hosts
 #  with no ipaddress
+#
+# Hostsfile should be something like
+# -----------------------------------------------------------------------------
+# # This is set by ktc-base::hosts chef recipe changes will be wiped out
+# 127.0.0.1 localhost.localdomain localhost
+#
+
+# On vagrant/dev env we use the eth1 ip addr explicitly
+# TODO: this is brittle There should be a better way to detect vagrant
 if node.chef_environment == "dev"
-  ip = node.network["interfaces"]["eth1"]["addresses"].keys[1]
+  ip = network["interfaces"]["eth1"]["addresses"].keys[1]
 else
   ip = node[:ipaddress]
 end
+
+# we don't want to manage or force this on a host with only loopback
+return if ip == '127.0.0.1'
 
 # need to figure out the fqdn and wether it is the same as hostname
 # and set aliases acordingly
 full_name = node[:fqdn].empty? ? 'unknown.localdomain' : node[:fqdn]
 name = node[:hostname].empty? ? 'unknown.localdomain' : node[:hostname]
-other_names =  [name]
+other_name =  name
 if name == full_name
-  other_names = nil
+  other_name = nil
 end
 
-hostsfile_entry ip do
-  not_if { ip == '127.0.0.1' }
-  action [:create, :update]
-  hostname full_name
-  aliases other_names if other_names
-  comment "Set by chef ktc-base::hosts"
-  ip_address ip
-  unique true
+# setup the hostfile content
+data = "# This is set by ktc-base::hosts chef recipe changes will be wiped\n"
+data << "127.0.0.1 localhost.localdomain localhost\n"
+data << "#{ip} #{full_name} #{other_name}\n"
+
+# chef file resource is atomic and generally pretty nice
+file "/etc/hosts" do
+  mode 00644
+  owner 'root'
+  group 'root'
+  content data
 end
