@@ -21,8 +21,23 @@
 KTC::Network.node = node
 ip = KTC::Network.address "management" ||  node[:ipaddress]
 
+# quick hack for mnode
+# TODO: fix this to be better
+if node[:node][:hostname].match('^mnode')
+  if node[:network][:interfaces].include? 'br0'
+    ip = KTC::Network.address 'br0'
+  else
+    ip = KTC::Network.address 'eth1'
+  end
+  if ip.nil?
+    ip = KTC::Network.address 'eth0'
+  end
+end
+
 # we don't want to manage or force this on a host with only loopback
 return if ip == '127.0.0.1'
+# but if theres no ip, then well use that
+local_only = true if ip.nil?
 
 # need to figure out the fqdn and wether it is the same as hostname
 # and set aliases acordingly
@@ -34,8 +49,14 @@ if name == full_name
 end
 
 # setup the hostfile content
+#
+local_entry = "127.0.0.1 localhost.localdomain localhost\n"
+if local_only
+  local_entry "127.0.0.1 #{full_name} #{other_name} localhost.localdomain localhost\n"
+end
+
 data = "# This is set by ktc-base::hosts chef recipe changes will be wiped\n"
-data << "127.0.0.1 localhost.localdomain localhost\n"
+data << local_entry
 data << "#{ip} #{full_name} #{other_name}\n"
 
 # chef file resource is atomic and generally pretty nice
