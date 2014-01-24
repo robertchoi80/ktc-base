@@ -19,19 +19,12 @@
 # This has some side-effects in chef. The node.fqdn may change.
 # after this then things will work.
 KTC::Network.node = node
-ip = KTC::Network.address "management" ||  node[:ipaddress]
+ip = KTC::Network.address "management"
 
-# quick hack for mnode
-# TODO: fix this to be better
-if node[:hostname].match(/^mnode/)
-  if node[:network][:interfaces].include? 'br0'
-    ip = KTC::Network.address 'br0'
-  else
-    ip = KTC::Network.address 'eth1'
-  end
-  if ip.nil?
-    ip = KTC::Network.address 'eth0'
-  end
+# if we can't get this management address it is considered critical error
+unless ip
+  raise Chef::Exceptions::AttributeNotFound,
+    'network_map for managment did not return an ip'
 end
 
 # we don't want to manage or force this on a host with only loopback
