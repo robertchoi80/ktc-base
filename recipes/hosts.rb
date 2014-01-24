@@ -48,10 +48,11 @@ end
 
 # setup the hostfile content
 #
-local_entry = "127.0.0.1 localhost.localdomain localhost\n"
+local_names = "localhost.localdomain localhost\n"
 # If theres no ip, then set it to localhost
+local_entry = "127.0.0.1 #{local_names}"
 if ip.nil?
-  local_entry "127.0.0.1 #{full_name} #{other_name} localhost.localdomain localhost\n"
+  local_entry = "127.0.0.1 #{full_name} #{other_name} #{local_names}"
 end
 
 data = "# This is set by ktc-base::hosts chef recipe changes will be wiped\n"
