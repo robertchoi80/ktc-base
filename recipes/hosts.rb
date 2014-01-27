@@ -19,7 +19,13 @@
 # This has some side-effects in chef. The node.fqdn may change.
 # after this then things will work.
 KTC::Network.node = node
-ip = KTC::Network.address "management" ||  node[:ipaddress]
+ip = KTC::Network.address "management"
+
+# if we can't get this management address it is considered critical error
+unless ip
+  raise Chef::Exceptions::AttributeNotFound,
+    'network_map for managment did not return an ip'
+end
 
 # we don't want to manage or force this on a host with only loopback
 return if ip == '127.0.0.1'
@@ -34,8 +40,16 @@ if name == full_name
 end
 
 # setup the hostfile content
+#
+local_names = "localhost.localdomain localhost\n"
+# If theres no ip, then set it to localhost
+local_entry = "127.0.0.1 #{local_names}"
+if ip.nil?
+  local_entry = "127.0.0.1 #{full_name} #{other_name} #{local_names}"
+end
+
 data = "# This is set by ktc-base::hosts chef recipe changes will be wiped\n"
-data << "127.0.0.1 localhost.localdomain localhost\n"
+data << local_entry
 data << "#{ip} #{full_name} #{other_name}\n"
 
 # chef file resource is atomic and generally pretty nice
