@@ -11,11 +11,8 @@ driver:
 platforms:
   - name: centos-6.4
   - name: ubuntu-12.04
-  - name: centos-6.5-chef10
-    driver_config:
-      box_url:  http://opscode-vm-bento.s3.amazonaws.com/vagrant/vmware/opscode_centos-6.5_chef-provisionerless.box
-      require_chef_omnibus: 10.30.2
-suites: 
+
+suites:
   - name: hosts
     run_list:
       - recipe[badhosts_test]
@@ -40,7 +37,7 @@ suites:
         args: -c 127.0.0.1:4001 -s 127.0.0.1:7001
         servers:
           - 127.0.0.1
-   
+
   - name: default
     run_list:
       - recipe[ktc-testing]
