@@ -1,4 +1,4 @@
-#
+# Encoding: UTF-8
 # we prefer this version of the delete_validation as it works in instances where
 # the Chef::Config doesn't have a client_key (chef-solo chef-zero client-zero)
 #

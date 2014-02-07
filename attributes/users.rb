@@ -1,3 +1,4 @@
+# Encoding: UTF-8
 include_attribute 'users'
 #
 # wheel (admins) get sudo by default

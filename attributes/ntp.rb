@@ -1,3 +1,4 @@
+# Encoding: UTF-8
 include_attribute 'ntp'
 default[:ntp][:servers] = %w/
   kr.pool.ntp.org

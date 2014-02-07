@@ -1,3 +1,4 @@
+# Encoding: UTF-8
 #
 # we do this in base for now, if you're in here to add functionality
 # bust this into a timezone app cook

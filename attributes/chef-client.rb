@@ -1,3 +1,4 @@
+# Encoding: UTF-8
 #
 #
 # Chef-client tuning

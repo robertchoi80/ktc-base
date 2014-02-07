@@ -1,3 +1,4 @@
+# Encoding: UTF-8
 #
 #  Controll omni updater recipe
 #

@@ -1,3 +1,4 @@
+# Encoding: UTF-8
 #
 # CookBook:: base
 # Recipe:: default

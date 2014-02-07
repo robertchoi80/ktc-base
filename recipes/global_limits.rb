@@ -1,3 +1,4 @@
+# Encoding: UTF-8
 # = begin
 # Recipe:: global_limits
 #
