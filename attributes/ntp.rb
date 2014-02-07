@@ -1,4 +1,4 @@
-include_attribute "ntp"
+include_attribute 'ntp'
 default[:ntp][:servers] = %w/
   kr.pool.ntp.org
   0.asia.pool.ntp.org
@@ -8,5 +8,5 @@ default[:ntp][:servers] = %w/
 default[:ntp][:peers] = %w/ntp01 ntp02/
 default[:ntp][:restrictions] = [
   # TODO: scope this down to the actial internal net
-  "10.0.0.0 mask 255.0.0.0 nomodify notrap",
+  '10.0.0.0 mask 255.0.0.0 nomodify notrap'
 ]

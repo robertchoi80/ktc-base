@@ -1,3 +1,3 @@
-include_attribute "tmux"
+include_attribute 'tmux'
 
-default[:tmux][:install_method] = "package"
+default[:tmux][:install_method] = 'package'

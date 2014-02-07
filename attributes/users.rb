@@ -1,8 +1,8 @@
-include_attribute "users"
+include_attribute 'users'
 #
 # wheel (admins) get sudo by default
 #
-default[:authorization][:sudo][:groups]            = ["wheel"]
+default[:authorization][:sudo][:groups]            = ['wheel']
 default[:authorization][:sudo][:passwordless]      = true
 default[:authorization][:sudo][:include_sudoers_d] = true
 

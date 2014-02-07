@@ -3,7 +3,7 @@ source  'https://rubygems.org'
 # get this from git for the chefignore issues
 gem 'berkshelf'
 
-group "develop" do
+group 'develop' do
   gem 'test-kitchen'
   gem 'kitchen-vagrant'
   gem 'kitchen-lxc'
