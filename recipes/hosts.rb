@@ -1,3 +1,4 @@
+# Encoding: UTF-8
 # To you, W. B. Yeats, good praiser, wholesome dispraiser, heavy-handed judge,
 # open-handed helper of us all, I offer a play of my plays for every night of
 # the week, because you like them, and because you have taught me my trade.
@@ -19,12 +20,12 @@
 # This has some side-effects in chef. The node.fqdn may change.
 # after this then things will work.
 KTC::Network.node = node
-ip = KTC::Network.address "management"
+ip = KTC::Network.address 'management'
 
 # if we can't get this management address it is considered critical error
 unless ip
-  raise Chef::Exceptions::AttributeNotFound,
-    'network_map for managment did not return an ip'
+  fail Chef::Exceptions::AttributeNotFound,
+       'network_map for managment did not return an ip'
 end
 
 # we don't want to manage or force this on a host with only loopback
@@ -35,25 +36,21 @@ return if ip == '127.0.0.1'
 full_name = node[:fqdn].empty? ? 'unknown.localdomain' : node[:fqdn]
 name = node[:hostname].empty? ? 'unknown.localdomain' : node[:hostname]
 other_name =  name
-if name == full_name
-  other_name = nil
-end
+other_name = nil if name == full_name
 
 # setup the hostfile content
 #
 local_names = "localhost.localdomain localhost\n"
 # If theres no ip, then set it to localhost
 local_entry = "127.0.0.1 #{local_names}"
-if ip.nil?
-  local_entry = "127.0.0.1 #{full_name} #{other_name} #{local_names}"
-end
+local_entry = "127.0.0.1 #{full_name} #{other_name} #{local_names}" if ip.nil?
 
 data = "# This is set by ktc-base::hosts chef recipe changes will be wiped\n"
 data << local_entry
 data << "#{ip} #{full_name} #{other_name}\n"
 
 # chef file resource is atomic and generally pretty nice
-file "/etc/hosts" do
+file '/etc/hosts' do
   mode 00644
   owner 'root'
   group 'root'

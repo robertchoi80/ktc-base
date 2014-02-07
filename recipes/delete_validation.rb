@@ -1,4 +1,4 @@
-#
+# Encoding: UTF-8
 # we prefer this version of the delete_validation as it works in instances where
 # the Chef::Config doesn't have a client_key (chef-solo chef-zero client-zero)
 #
@@ -9,10 +9,10 @@ class ::Chef::Recipe
   include ::Opscode::ChefClient::Helpers
 end
 
-client_key = Chef::Config[:client_key] || '/etc/chef/validation.pem'
-
+client_key = Chef::Config[:client_key] || '/etc/chef/client.pem'
+validator =  Chef::Config[:validation_key] || '/etc/chef/validation.pem'
 unless chef_server?
-  file Chef::Config[:validation_key] do
+  file validator do
     action :delete
     backup false
     only_if { ::File.exists?(client_key) }

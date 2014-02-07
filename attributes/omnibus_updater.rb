@@ -1,9 +1,10 @@
+# Encoding: UTF-8
 #
 #  Controll omni updater recipe
 #
 
-include_attribute "ktc-package"
-include_attribute "omnibus_updater"
+include_attribute 'ktc-package'
+include_attribute 'omnibus_updater'
 
 default[:omnibus_updater][:direct_url] =
   "http://#{node["repo_host"]}/prod/kt/pool/main/c/chef/chef_11.8.2-1.ubuntu.12.04_amd64.deb"

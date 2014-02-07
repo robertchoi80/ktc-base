@@ -1,21 +1,20 @@
-#= begin
+# Encoding: UTF-8
+# = begin
 # Recipe:: global_limits
 #
 #  Setup the global pam limits. Use the user_limit ressource for per-user things
 #
-#= end
+# = end
 
-
-directory "/etc/security/limits.d/" do
-  owner "root"
-  group "root"
-  mode "0755"
+directory '/etc/security/limits.d/' do
+  owner 'root'
+  group 'root'
+  mode '0755'
 end
 
-
-file "/etc/security/limits.d/global-limits.conf" do
-  owner "root"
-  group "root"
+file '/etc/security/limits.d/global-limits.conf' do
+  owner 'root'
+  group 'root'
   mode  0640
   content <<-END
     # global limits

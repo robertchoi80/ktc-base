@@ -1,4 +1,4 @@
-#
+# Encoding: UTF-8
 # CookBook:: ktc-base
 # Recipe:: default
 # Author:: Jesse Nelson <spheromak@gmail.com>

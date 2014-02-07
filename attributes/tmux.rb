@@ -1,3 +1,4 @@
-include_attribute "tmux"
+# Encoding: UTF-8
+include_attribute 'tmux'
 
-default[:tmux][:install_method] = "package"
+default[:tmux][:install_method] = 'package'

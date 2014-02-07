@@ -1,3 +1,4 @@
+# Encoding: UTF-8
 #
 # Base run list requirements
 #
@@ -5,8 +6,8 @@ default[:base][:includes] = []
 
 # selinux permissive when on rhelish things
 case platform_family
-when "rhel"
-  default[:base][:includes] << "selinux::permissive"
+when 'rhel'
+  default[:base][:includes] << 'selinux::permissive'
 end
 
 default[:base][:includes].concat %w{
