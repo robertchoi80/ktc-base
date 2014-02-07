@@ -9,10 +9,10 @@ class ::Chef::Recipe
   include ::Opscode::ChefClient::Helpers
 end
 
-client_key = Chef::Config[:client_key] || '/etc/chef/validation.pem'
-
+client_key = Chef::Config[:client_key] || '/etc/chef/client.pem'
+validator =  Chef::Config[:validation_key] || '/etc/chef/validation.pem'
 unless chef_server?
-  file Chef::Config[:validation_key] do
+  file validator do
     action :delete
     backup false
     only_if { ::File.exists?(client_key) }
