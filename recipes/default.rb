@@ -15,3 +15,7 @@ Chef::Config[:client_key] ||= '/tmp/chef/client.pem'
 node[:base][:includes].each do |recipe|
   include_recipe recipe
 end
+
+node['base']['packages'].each do |p|
+  package p
+end
