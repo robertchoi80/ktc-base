@@ -8,7 +8,8 @@
 
 include_recipe 'timezone'
 
-# NOTE: our java stacks want this, I think it should probably go there(java cook) instead of here.
+# NOTE: our java stacks want this, I think it should probably go there (java
+# cook) instead of here.
 file  '/etc/profile.d/tz.sh' do
   mode 0644
   content <<EOF

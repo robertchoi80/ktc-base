@@ -1,6 +1,7 @@
 # Encoding: UTF-8
-# we prefer this version of the delete_validation as it works in instances where
-# the Chef::Config doesn't have a client_key (chef-solo chef-zero client-zero)
+# we prefer this version of the delete_validation as it works in instances
+# where the Chef::Config doesn't have a client_key (chef-solo chef-zero
+# client-zero)
 #
 # TODO: Replace this with upstream when this issuee is resolved there.
 #   https://github.com/opscode-cookbooks/chef-client/pull/141
