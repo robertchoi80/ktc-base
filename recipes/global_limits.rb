@@ -2,7 +2,7 @@
 # = begin
 # Recipe:: global_limits
 #
-#  Setup the global pam limits. Use the user_limit ressource for per-user things
+# Setup the global pam limits. Use the user_limit ressource for per-user things
 #
 # = end
 
