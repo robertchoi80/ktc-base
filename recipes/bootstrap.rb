@@ -25,4 +25,4 @@ end
   ntp
   tmux
   ktc-base::delete_validation
-}.each {|i| include_recipe i}
+}.each { |i| include_recipe i }
