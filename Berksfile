@@ -11,7 +11,7 @@ cookbook 'timezone', github: 'secondmarket-cookbooks/timezone'
 
 group :integration do
   cookbook 'badhosts_test', path: 'test/cookbooks/badhosts_test'
-  cookbook 'ktc-etcd'
+  cookbook 'ktc-etcd', '>= 1.1.18'
   cookbook 'ktc-sensu'
   cookbook 'ktc-testing'
 end
