@@ -16,6 +16,7 @@ default[:base][:includes].concat %w{
   timezone
   ktc-base::timezone
   ktc-base::hosts
+  ktc-monitor::client
   ktc-chef
   ohai
   users
@@ -26,7 +27,6 @@ default[:base][:includes].concat %w{
   ktc-base::global_limits
   ntp
   tmux
-  ktc-monitor::client
   ktc-logging::client
   ktc-base::delete_validation
 }
