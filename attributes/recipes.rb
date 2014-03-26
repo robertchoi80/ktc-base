@@ -10,7 +10,7 @@ when 'rhel'
   default[:base][:includes] << 'selinux::permissive'
 end
 
-default[:base][:includes].concat %w{
+default[:base][:includes].concat %w(
   ktc-package
   sysctl
   timezone
@@ -29,4 +29,4 @@ default[:base][:includes].concat %w{
   tmux
   ktc-logging::client
   ktc-base::delete_validation
-}
+)

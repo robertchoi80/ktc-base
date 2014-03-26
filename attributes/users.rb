@@ -11,6 +11,6 @@ default[:authorization][:sudo][:include_sudoers_d] = true
 default[:users][:manage_home] = true
 
 # users cook sets defaults. We override
-default[:accounts][:groups] = %w[
+default[:accounts][:groups] = %w(
   wheel
-]
+)

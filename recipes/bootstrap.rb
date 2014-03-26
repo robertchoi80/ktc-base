@@ -8,7 +8,7 @@ when 'rhel'
   include_recipe 'selinux::permissive'
 end
 
-%w{
+%w(
   ktc-package
   sysctl
   timezone
@@ -25,4 +25,4 @@ end
   ntp
   tmux
   ktc-base::delete_validation
-}.each { |i| include_recipe i }
+).each { |i| include_recipe i }
