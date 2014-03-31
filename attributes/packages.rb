@@ -5,4 +5,5 @@
 
 default['base']['packages'] = %w(
   kdump-tools
+  linux-crashdump
 )
