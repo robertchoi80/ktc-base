@@ -25,7 +25,7 @@ default[:base][:includes].concat %w(
   ktc-ssh::users
   ktc-vim
   ktc-base::global_limits
-  ntp
+  ktc-base::ntp
   tmux
   ktc-logging::client
   ktc-base::delete_validation
