@@ -22,6 +22,7 @@ default[:base][:includes].concat %w(
   users
   sudo
   ktc-git::users
+  ktc-ssh
   ktc-ssh::users
   ktc-vim
   ktc-base::global_limits
