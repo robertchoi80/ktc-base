@@ -3,7 +3,7 @@ include_attribute 'users'
 #
 # wheel (admins) get sudo by default
 #
-default[:authorization][:sudo][:groups]            = ['wheel', 'sensu']
+default[:authorization][:sudo][:groups]            = %w(wheel sensu)
 default[:authorization][:sudo][:passwordless]      = true
 default[:authorization][:sudo][:include_sudoers_d] = true
 
